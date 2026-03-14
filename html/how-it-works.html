@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How GPS Works - The Invisible Network</title>
+    <meta name="description" content="Understand the technical mechanisms of trilateration, satellites, and the Global Positioning System.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <span class="icon">🛰️</span>
+                    <span class="text">GPS Network</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="how-it-works.html" class="active">How It Works</a></li>
+                    <li><a href="applications.html">Applications</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>How It <span class="highlight">Works</span></h1>
+                <p>The science and mathematics behind pinpointing your exact location anywhere on Earth.</p>
+            </div>
+        </section>
+
+        <section class="content-section container">
+            <div class="content-block">
+                <h2>The Three Segments of GPS</h2>
+                <p>To understand the GPS system, it helps to break it down into three distinct parts, often called "segments":</p>
+                <ol>
+                    <li><strong>The Space Segment:</strong> A constellation of at least 24 (often more) satellites orbiting about 12,500 miles (20,000 km) above Earth. They circle the planet twice a day in precise orbits, broadcasting radio signals.</li>
+                    <li><strong>The Control Segment:</strong> A network of radar stations and master control stations situated across the globe. They monitor the satellites, adjust their orbits, and ensure their onboard atomic clocks are perfectly synchronized.</li>
+                    <li><strong>The User Segment:</strong> Any device containing a GPS receiver—like your smartphone, a car's navigation system, or a smartwatch. The receiver's job is to listen for signals from the satellites.</li>
+                </ol>
+
+                <h2>The Principle of Trilateration</h2>
+                <p>
+                    The fundamental math governing GPS is called <strong>Trilateration</strong> (not to be confused with triangulation, which uses angles). 
+                </p>
+                <p>
+                    Imagine you are lost, and someone tells you that you are exactly 500 miles from City A. You could be anywhere on a circle with a radius of 500 miles around City A.
+                    If another person tells you are 300 miles from City B, you can draw a second circle. The two circles intersect at exactly two points. You know you are at one of those two points.
+                    If a third person gives you your distance from City C, you draw a third circle. It will intersect the other two at precisely one, specific point. You now have an exact geographical location.
+                </p>
+                <p>
+                    GPS uses 3D trilateration. Instead of circles on a map, the satellites create spheres. The intersection of three spheres narrows your location to two points (one of which is usually impossible, like out in deep space or deep underground).
+                </p>
+
+                <h2>Timing is Everything</h2>
+                <p>
+                    How does the receiver know its distance from a satellite? It purely measures <em>time</em>. 
+                </p>
+                <p>
+                    The satellite broadcasts a signal containing exactly what time it was sent and the satellite's exact position. Because radio waves travel at the speed of light, your receiver measures how long the signal took to arrive. Distance is simply Time multiplied by the Speed of Light.
+                </p>
+                <p>
+                    Because light travels incredibly fast, timing must be flawlessly precise. The satellites carry atomic clocks. A tiny fraction of a second error would throw your location off by miles. This is why a receiver actually needs a <strong>fourth satellite</strong>: to correct its own standard digital clock against the highly accurate atomic time kept by the satellites.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="icon">🛰️</span> GPS Network
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="history.html">History</a>
+                <a href="how-it-works.html">How It Works</a>
+                <a href="applications.html">Applications</a>
+            </div>
+            <p class="copyright">&copy; 2026 The Invisible Network - GPS Project. Built with HTML & CSS.</p>
+        </div>
+    </footer>
+</body>
+</html>
