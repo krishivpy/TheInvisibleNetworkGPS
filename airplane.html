@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS in Airplanes - GPS Explorer</title>
+    <meta name="description" content="Learn how GPS helps airplanes navigate the world safely and precisely.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Top Navigation -->
+    <header class="top-header">
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">The Invisible Network — GPS</a>
+        </div>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="index.html">What is GPS</a></li>
+                <li><a href="index.html" onclick="localStorage.setItem('gps-topic','history-of-gps')">History</a></li>
+                <li><a href="index.html" onclick="localStorage.setItem('gps-topic','how-it-works')">How it Works</a>
+                </li>
+                <li><a href="index.html" onclick="localStorage.setItem('gps-topic','atomic-clock')">Atomic Clock</a>
+                </li>
+                <li><a href="airplane.html" class="active">GPS in Airplane</a></li>
+                <li><a href="smartphones.html">GPS in Smartphones</a></li>
+                <li><a href="cars.html">GPS in Cars</a></li>
+                <li><a href="ships.html">GPS in Ships</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+                <li><a href="sources.html">Sources</a></li>
+            </ul>
+        </nav>
+
+        <button class="mobile-menu-btn" onclick="document.querySelector('.desktop-nav').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="content-wrapper">
+
+            <section class="topic-card" id="gps-in-airplanes">
+                <div class="topic-header">
+                    <div class="topic-badge">Aviation</div>
+                    <h1>GPS in Airplanes</h1>
+                </div>
+
+                <img src="img/GPSInAirPlane.png" alt="GPS in Airplanes" class="hero-image"
+                    style="height: 400px; width: 100%; object-fit: contain; background: #1a1a1a;">
+
+                <div class="topic-body">
+                    <p class="intro-text">
+                        How GPS Helps Airplanes Navigate the World
+                    </p>
+
+                    <p>
+                        GPS plays an essential role in modern aviation. Aircraft use GPS to determine their position,
+                        speed, direction, and altitude while flying across long distances.
+                    </p>
+
+                    <p>
+                        Inside an aircraft, GPS receivers communicate with satellites to constantly update the
+                        aircraft's
+                        position. This information is displayed on cockpit navigation screens and used by the aircraft's
+                        flight management system.
+                    </p>
+
+                    <p>
+                        GPS allows aircraft to follow highly precise flight paths known as <strong>area navigation
+                            routes (RNAV)</strong>. These routes allow planes to fly more direct paths between airports,
+                        saving fuel and reducing travel time.
+                    </p>
+
+                    <div class="editorial-box" style="margin-top: 40px; border-color: #000;">
+                        <h3 style="margin-bottom: 20px;">Wide Area Augmentation System (WAAS)</h3>
+                        <p>
+                            Another important aviation system is the <strong>Wide Area Augmentation System</strong>.
+                            WAAS improves GPS accuracy by using a network of ground reference stations across North
+                            America.
+                        </p>
+                        <p style="margin-top: 15px;">
+                            These stations monitor GPS signals and detect small errors. Correction information is sent
+                            to
+                            special satellites, which then broadcast the corrected signals to aircraft. With WAAS, GPS
+                            accuracy improves to within about <strong>1–2 meters</strong>, which allows pilots to
+                            perform
+                            precise landing approaches even in poor weather or low visibility.
+                        </p>
+                    </div>
+
+                    <p
+                        style="font-weight: bold; background: #fff; border-left: 5px solid #000; padding: 15px 20px; margin-top: 30px;">
+                        GPS has significantly improved aviation safety by reducing navigation errors and helping pilots
+                        maintain accurate flight paths.
+                    </p>
+                </div>
+
+                <div class="topic-footer">
+                    <a href="smartphones.html" class="btn btn-primary">Next: GPS in Smartphones</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,98 +1,685 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Invisible Network - GPS</title>
-    <meta name="description" content="Discover the Global Positioning System, the invisible network that guides our world.">
+    <title>GPS - The Global Positioning System</title>
+    <meta name="description" content="Explore the Global Positioning System navigation network.">
     <link rel="stylesheet" href="css/style.css">
-    <!-- Google Fonts for modern typography -->
+    <!-- Google Fonts for Editorial Look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="icon">🛰️</span>
-                    <span class="text">GPS Network</span>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <button class="mobile-menu-btn" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('active')">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="html/history.html">History</a></li>
-                    <li><a href="html/how-it-works.html">How It Works</a></li>
-                    <li><a href="html/applications.html">Applications</a></li>
-                </ul>
-            </nav>
+
+    <!-- Top Navigation -->
+    <header class="top-header">
+        <div class="logo">
+            The Invisible Network — GPS
         </div>
+
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#" class="active" onclick="showTopic('what-is-gps', this)">What is GPS</a></li>
+                <li><a href="#" onclick="showTopic('history-of-gps', this)">History</a></li>
+                <li><a href="#" onclick="showTopic('how-it-works', this)">How it Works</a></li>
+                <li><a href="#" onclick="showTopic('atomic-clock', this)">Atomic Clock</a></li>
+                <li><a href="airplane.html">GPS in Airplane</a></li>
+                <li><a href="smartphones.html">GPS in Smartphones</a></li>
+                <li><a href="cars.html">GPS in Cars</a></li>
+                <li><a href="ships.html">GPS in Ships</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+                <li><a href="sources.html">Sources</a></li>
+                <li><a href="#" onclick="showTopic('gps-game', this)">Tracker Game</a></li>
+            </ul>
+        </nav>
+
+        <button class="mobile-menu-btn" onclick="document.querySelector('.desktop-nav').classList.toggle('active')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content container">
-                <h1>The Invisible <br><span class="highlight">Network</span></h1>
-                <p class="subtitle">Exploring the Global Positioning System</p>
-                <p class="description">
-                    A constellation of satellites orbiting Earth, quietly enabling modern navigation, timing, and communication. Discover how this incredible technology shapes our daily lives.
-                </p>
-                <div class="cta-group">
-                    <a href="html/how-it-works.html" class="btn btn-primary">Discover How It Works</a>
-                    <a href="html/history.html" class="btn btn-secondary">Explore the History</a>
-                </div>
-            </div>
-            <div class="hero-bg-elements">
-                <div class="orbit orbit-1"></div>
-                <div class="orbit orbit-2"></div>
-                <div class="orbit orbit-3"></div>
-                <div class="satellite sat-1">🛰️</div>
-                <div class="satellite sat-2">🛰️</div>
-            </div>
-        </section>
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="content-wrapper">
 
-        <section class="features container">
-            <h2 class="section-title">Core Concepts</h2>
-            <div class="grid cards-grid">
-                <div class="card">
-                    <div class="card-icon">🚀</div>
-                    <h3>Space Segment</h3>
-                    <p>A constellation of at least 24 operational satellites transmitting one-way signals that give their current position and time.</p>
+            <!-- What is GPS Section -->
+            <section class="topic-card" id="what-is-gps">
+                <div class="topic-header">
+                    <div class="topic-badge">Introduction</div>
+                    <h1>What is GPS?</h1>
                 </div>
-                <div class="card">
-                    <div class="card-icon">📡</div>
-                    <h3>Control Segment</h3>
-                    <p>Worldwide monitor and control stations that maintain the satellites in their proper orbits and monitor satellite health.</p>
+
+                <img src="img/ChatGPT%20Image%20Apr%2027,%202026,%2008_26_34%20PM.png" alt="What is GPS"
+                    class="hero-image" style="height: 480px; width: 100%; object-fit: cover; object-position: center;">
+
+                <div class="topic-body">
+                    <p class="intro-text">
+                        Where Am I? Understanding the Global Positioning System
+                    </p>
+
+                    <p>
+                        The Global Positioning System (GPS) is a satellite-based navigation system that allows people
+                        and devices to determine their exact location anywhere on Earth. GPS works using a network of
+                        satellites orbiting the planet that constantly send signals to receivers on the ground. These
+                        receivers can be found in smartphones, cars, airplanes, ships, and many other devices.
+                    </p>
+
+                    <p>
+                        The system was developed and is operated by the United States Space Force, but GPS signals are
+                        freely available to anyone in the world with a compatible receiver. This makes GPS one of the
+                        most widely used navigation systems in modern society.
+                    </p>
+
+                    <div class="editorial-box">
+                        <h3>GPS is made up of three main parts called segments:</h3>
+                    </div>
+
+                    <div class="placeholder-grid">
+                        <div class="placeholder-item">
+                            <h4>1. Space Segment</h4>
+                            <p>This part includes the satellites orbiting Earth. At least 24 satellites are always in
+                                orbit about 20,200 km (12,550 miles) above the Earth. They move around the planet twice
+                                every day and constantly transmit signals containing their position and time.</p>
+                        </div>
+                        <div class="placeholder-item">
+                            <h4>2. Control Segment</h4>
+                            <p>This part includes ground control stations located around the world. These stations
+                                monitor the satellites, track their positions, update satellite clocks, and make sure
+                                the satellites are functioning properly.</p>
+                        </div>
+                        <div class="placeholder-item">
+                            <h4>3. User Segment</h4>
+                            <p>The user segment includes all devices that receive GPS signals. These devices include
+                                smartphones, navigation systems in cars, aircraft navigation computers, ship navigation
+                                systems, and even handheld GPS devices used by hikers.</p>
+                        </div>
+                    </div>
+
+                    <div class="editorial-box" style="margin-top: 40px; border-color: #333;">
+                        <h3 style="margin-bottom: 20px;">GPS is used in many areas of life today. For example:</h3>
+                        <ul style="list-style-type: disc; padding-left: 25px; margin-bottom: 0;">
+                            <li style="margin-bottom: 10px;">Navigation apps help drivers find the fastest route to a
+                                destination.</li>
+                            <li style="margin-bottom: 10px;">Emergency services use GPS to locate people who need help.
+                            </li>
+                            <li style="margin-bottom: 10px;">Farmers use GPS to guide tractors for precise planting.
+                            </li>
+                            <li style="margin-bottom: 10px;">Scientists use GPS to study earthquakes and movement of
+                                Earth's crust.</li>
+                        </ul>
+                    </div>
+
+                    <p style="font-weight: bold; background: #fff; border-left: 5px solid #000; padding-left: 20px;">
+                        Because of its reliability and global coverage, GPS has become one of the most important
+                        technologies supporting transportation, safety, science, and everyday life.
+                    </p>
                 </div>
-                <div class="card">
-                    <div class="card-icon">📱</div>
-                    <h3>User Segment</h3>
-                    <p>The GPS receiver equipment that receives the signals and uses the transmitted information to calculate the user's location.</p>
+
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('history-of-gps')">Next: History of GPS</button>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- History of GPS Section -->
+            <section class="topic-card" id="history-of-gps" style="display: none;">
+                <div class="topic-header">
+                    <div class="topic-badge">History</div>
+                    <h1>History of GPS</h1>
+                </div>
+
+                <img src="img/multiple_satellites.png" alt="History of GPS Timeline" class="hero-image"
+                    style="height: 300px; width: 100%; object-fit: cover; object-position: center;">
+
+                <div class="topic-body">
+                    <p class="intro-text">
+                        The Journey of GPS: From Space Race to Everyday Life
+                    </p>
+                    <p>
+                        The idea behind GPS began in the late 1950s when scientists discovered that satellites could
+                        help determine locations on Earth. This discovery came after the launch of Sputnik 1 by the
+                        Soviet Union in 1957.
+                    </p>
+                    <p>
+                        Scientists in the United States noticed that they could track the satellite by measuring changes
+                        in its radio signals. From this observation, they realized that the opposite might also be
+                        possible: if the location of a satellite were known, a receiver on Earth could calculate its own
+                        position.
+                    </p>
+                    <p>
+                        During the 1960s, the U.S. Navy began developing early satellite navigation systems to help
+                        submarines navigate across the oceans. These early systems were useful but limited because they
+                        required several hours to calculate positions.
+                    </p>
+                    <p>
+                        In the 1970s, the United States Department of Defense started developing a new and much more
+                        accurate system called the Global Positioning System. The goal was to create a navigation system
+                        that would work anywhere in the world for military aircraft, ships, and ground forces.
+                    </p>
+                    <p>
+                        The first experimental GPS satellite was launched in 1978. Over the next 15 years, more
+                        satellites were launched to build the full network.
+                    </p>
+                    <p>
+                        A major turning point occurred in 1983 when a civilian airplane accidentally entered restricted
+                        airspace and was shot down. After this tragedy, the United States government announced that GPS
+                        would be made available for civilian use to improve global navigation safety.
+                    </p>
+                    <p>
+                        By 1993, the full GPS satellite constellation was completed, making the system fully operational
+                        worldwide. Since then, GPS has continued to improve with better satellites, stronger signals,
+                        and more accurate positioning.
+                    </p>
+                    <p>
+                        Today, billions of devices around the world use GPS every day.
+                    </p>
+
+                    <div class="editorial-box" style="margin-top: 40px; border-color: #000;">
+                        <h3 style="margin-bottom: 25px;">GPS Development Timeline</h3>
+
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); min-width: 80px;">1957</strong>
+                                <p style="margin: 0;">Launch of Sputnik 1, leading scientists to discover satellite
+                                    tracking techniques.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); min-width: 80px;">1960s</strong>
+                                <p style="margin: 0;">The U.S. Navy develops early satellite navigation systems such as
+                                    the Transit navigation system.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); min-width: 80px;">1973</strong>
+                                <p style="margin: 0;">The U.S. Department of Defense begins the GPS development program.
+                                </p>
+                            </div>
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); min-width: 80px;">1978</strong>
+                                <p style="margin: 0;">The first experimental GPS satellite is launched.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); min-width: 80px;">1983</strong>
+                                <p style="margin: 0;">GPS is made available for civilian use worldwide.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); min-width: 80px;">1993</strong>
+                                <p style="margin: 0;">The full network of 24 GPS satellites becomes operational.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--primary); min-width: 80px;">2000</strong>
+                                <p style="margin: 0;">The U.S. government improves civilian GPS accuracy by removing
+                                    signal limitations.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; align-items: baseline;">
+                                <strong
+                                    style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--secondary); min-width: 80px;">Today</strong>
+                                <p style="margin: 0; font-weight: bold;">More than 30 satellites operate in the GPS
+                                    system and billions of devices use GPS worldwide.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('how-it-works')">Next: How it Works</button>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="topic-card" id="how-it-works" style="display: none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Science</div>
+                    <h1>How It Works</h1>
+                </div>
+
+                <div class="topic-body">
+                    <p class="intro-text">
+                        The Science Behind GPS: Time, Satellites, and Trilateration
+                    </p>
+
+                    <p>
+                        GPS determines location by measuring the distance between a receiver and several satellites in
+                        space. Each satellite continuously sends a radio signal that includes two important pieces of
+                        information: the satellite’s position and the exact time the signal was sent.
+                    </p>
+
+                    <p>
+                        When a GPS receiver picks up this signal, it calculates how long the signal took to reach the
+                        receiver. Because radio signals travel at the speed of light, the receiver can determine how far
+                        away the satellite is.
+                    </p>
+
+                    <p>
+                        This process is called <strong>trilateration</strong>.
+                    </p>
+
+                    <p>
+                        If the receiver knows the distance to one satellite, it knows it is somewhere on a large
+                        imaginary sphere around that satellite. When a second satellite signal is added, the possible
+                        location becomes the circle where the two spheres intersect. When a third satellite signal is
+                        received, the receiver can determine the exact point where the three spheres intersect.
+                    </p>
+
+                    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin: 40px 0;">
+                        <img src="img/HowItWorks_1.png" alt="How GPS Works Step 1"
+                            style="width: 100%; max-width: 300px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid #eaeaea;">
+                        <img src="img/HowItWorks_2.png" alt="How GPS Works Step 2"
+                            style="width: 100%; max-width: 300px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid #eaeaea;">
+                    </div>
+
+                    <p style="font-weight: bold;">
+                        Most GPS receivers actually use four or more satellites to calculate location more accurately
+                        and determine altitude.
+                    </p>
+
+                    <p>
+                        Another important part of GPS is atomic clocks. Each GPS satellite carries extremely precise
+                        atomic clocks that measure time with incredible accuracy. Because GPS calculations depend on
+                        measuring signal travel time, even a tiny timing error could cause large location errors. Atomic
+                        clocks help ensure the system remains accurate.
+                    </p>
+
+                    <div class="editorial-box" style="margin-top: 40px; border-color: #000;">
+                        <h3 style="margin-bottom: 25px;">Factors That Affect GPS Accuracy</h3>
+                        <p style="margin-bottom: 20px;">Although GPS is very accurate, several factors can affect signal
+                            quality:</p>
+
+                        <div class="placeholder-grid">
+                            <div class="placeholder-item" style="border-top: 3px solid var(--primary);">
+                                <h4>Tall buildings</h4>
+                                <p>In large cities, GPS signals may bounce off skyscrapers before reaching the receiver.
+                                    This is called multipath error.</p>
+                            </div>
+                            <div class="placeholder-item" style="border-top: 3px solid var(--primary);">
+                                <h4>Mountains or tunnels</h4>
+                                <p>Signals can be blocked by large physical obstacles.</p>
+                            </div>
+                            <div class="placeholder-item" style="border-top: 3px solid var(--primary);">
+                                <h4>Atmospheric conditions</h4>
+                                <p>Signals passing through Earth’s atmosphere may slow slightly.</p>
+                            </div>
+                            <div class="placeholder-item" style="border-top: 3px solid var(--primary);">
+                                <h4>Satellite geometry</h4>
+                                <p>If satellites are clustered close together in the sky, accuracy may decrease.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p
+                        style="font-weight: bold; background: #fff; border-left: 5px solid #000; padding-left: 20px; margin-top: 30px;">
+                        To improve accuracy, modern devices combine GPS with Wi-Fi positioning, mobile network signals,
+                        and motion sensors.
+                    </p>
+                </div>
+
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('atomic-clock')">Next: Atomic Clock</button>
+                </div>
+            </section>
+
+            <!-- Atomic Clock Section -->
+            <section class="topic-card" id="atomic-clock" style="display: none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Technology</div>
+                    <h1>The Atomic Clock</h1>
+                </div>
+
+                <img src="img/atomic_clock.png" alt="Atomic Clock" class="hero-image"
+                    style="height: 300px; width: 100%; object-fit: contain; background: #1a1a1a;">
+
+                <div class="topic-body">
+                    <p class="intro-text">
+                        The heartbeat of the Global Positioning System.
+                    </p>
+
+                    <p>
+                        Atomic clocks are the most accurate time and frequency standards known. They measure time by
+                        monitoring the resonant frequency of atoms (like Cesium or Rubidium). Each GPS satellite carries
+                        multiple redundant atomic clocks on board to maintain supreme synchronization.
+                    </p>
+
+                    <div class="editorial-box">
+                        <h3>Why does GPS need such precise time?</h3>
+                        <p>Because GPS calculates position by measuring the time it takes for a signal to travel from
+                            space to Earth at the speed of light, a clock error of just one single microsecond (0.000001
+                            seconds) would result in a location error of roughly 300 meters on the ground!</p>
+                    </div>
+                </div>
+
+                <div class="topic-footer">
+                    <a href="airplane.html" class="btn btn-primary">Next: GPS in Airplane</a>
+                </div>
+            </section>
+
+
+
+            <!-- GPS Game Section -->
+            <section class="topic-card" id="gps-game" style="display: none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Interactive Simulation</div>
+                    <h1>Signal Tracker</h1>
+                </div>
+
+                <div class="topic-body">
+                    <p class="intro-text">
+                        Tap the grid to deploy 4 orbital tracking signals and isolate the moving target.
+                    </p>
+
+                    <div id="game-dashboard">
+                        <div>
+                            <div style="font-size: 1rem; color: #888; text-transform: uppercase;">Current Target:</div>
+                            <div id="current-mission">Tracking Entity-A...</div>
+                            <div id="game-message">AWAITING SIGNAL DEPLOYMENT 1</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 1rem; color: #888; text-transform: uppercase;">Signal Locks</div>
+                            <div id="score-count">0</div>
+                        </div>
+                    </div>
+
+                    <div id="game-container">
+                        <!-- Permanently Fixed Satellites -->
+                        <div class="fixed-sat" id="fs-1">🛰️</div>
+                        <div class="fixed-sat" id="fs-2">🛰️</div>
+                        <div class="fixed-sat" id="fs-3">🛰️</div>
+                        <div class="fixed-sat" id="fs-4">🛰️</div>
+
+                        <!-- The Moving Object -->
+                        <div id="target-object" class="moving-target">📍</div>
+
+                        <!-- Floating Points Container -->
+                        <div id="floating-points-container"
+                            style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index: 50;">
+                        </div>
+
+                        <!-- Victory Screen -->
+                        <div id="victory-screen">
+                            <h2>TARGET SECURED</h2>
+                            <p
+                                style="color: #ccc; font-family: 'Open Sans'; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px;">
+                                Trilateration Complete</p>
+                            <p id="final-score" style="font-size: 2rem; margin: 20px 0;">Locks: 0</p>
+                            <button class="btn btn-primary" onclick="resetGame()" style="margin-top: 15px;">Deploy
+                                Again</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </main>
 
-    <footer class="main-footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <span class="icon">🛰️</span> GPS Network
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="html/history.html">History</a>
-                <a href="html/how-it-works.html">How It Works</a>
-                <a href="html/applications.html">Applications</a>
-            </div>
-            <p class="copyright">&copy; 2026 The Invisible Network - GPS Project. Built with HTML & CSS.</p>
-        </div>
-    </footer>
+    <!-- Script to handle logic -->
+    <script>
+        function showTopic(topicId, element) {
+            document.querySelectorAll('.topic-card').forEach(card => card.style.display = 'none');
+            document.querySelectorAll('.desktop-nav a').forEach(link => link.classList.remove('active'));
+
+            const targetSection = document.getElementById(topicId);
+            if (targetSection) targetSection.style.display = 'block';
+
+            if (element) {
+                element.classList.add('active');
+            } else {
+                const link = document.querySelector(`a[onclick*="${topicId}"]`);
+                if (link) link.classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- GPS Game Logic (Trilateration Tracker) ---
+        let currentMissionIndex = 0;
+        let score = 0;
+        const missions = [
+            { text: "Tracking Entity-A", emoji: "📍", points: 100 },
+            { text: "Tracking Entity-B", emoji: "♦️", points: 150 },
+            { text: "Tracking Transport", emoji: "🚁", points: 200 }
+        ];
+
+        const satRadiuses = [220, 170, 120, 80];
+        let deployedSats = [];
+        let isGameWon = false;
+        let pAnimId;
+
+        // Target state
+        let target = {
+            x: 200, y: 200,
+            dx: 0.8, dy: 0.6,
+            speedMultiplier: 1
+        };
+
+        function initGame() {
+            updateDashboard();
+            startMovingTarget();
+
+            document.getElementById('game-container').onclick = function (e) {
+                if (isGameWon || deployedSats.length >= 4) return;
+
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                deploySatellite(x, y);
+            };
+        }
+
+        function updateDashboard() {
+            const mission = missions[currentMissionIndex];
+            if (mission) {
+                document.getElementById('current-mission').innerText = `${mission.text}`;
+            }
+            document.getElementById('score-count').innerText = score;
+
+            const msgEl = document.getElementById('game-message');
+            if (deployedSats.length === 0) {
+                msgEl.innerText = "AWAITING SIGNAL DEPLOYMENT 1";
+                msgEl.style.animation = "pulseMessage 1s infinite alternate";
+            } else if (deployedSats.length < 4) {
+                msgEl.innerText = `UPLINK ESTABLISHED. DEPLOYED: ${deployedSats.length}/4`;
+                msgEl.style.animation = "none";
+            }
+        }
+
+        function deploySatellite(x, y) {
+            const nextIndex = deployedSats.length;
+            const radius = satRadiuses[nextIndex];
+            const container = document.getElementById('game-container');
+
+            const satEl = document.createElement('div');
+            satEl.className = `signal-circle signal-${nextIndex + 1}`;
+            satEl.style.width = `${radius * 2}px`;
+            satEl.style.height = `${radius * 2}px`;
+            satEl.style.left = `${x}px`;
+            satEl.style.top = `${y}px`;
+
+            const beamEl = document.createElement('div');
+            beamEl.className = `sat-beam beam-${nextIndex + 1}`;
+
+            container.appendChild(satEl);
+            container.appendChild(beamEl);
+
+            const iconEl = document.getElementById(`fs-${nextIndex + 1}`);
+            if (iconEl) {
+                iconEl.style.opacity = '1';
+                iconEl.style.filter = `drop-shadow(0 0 10px currentColor) brightness(1.2)`;
+            }
+
+            deployedSats.push({
+                x, y, radius,
+                el: satEl, beamEl: beamEl, iconIndex: nextIndex + 1
+            });
+            updateDashboard();
+
+            if (deployedSats.length === 4) {
+                checkTrilateration();
+            }
+        }
+
+        function startMovingTarget() {
+            const targetEl = document.getElementById('target-object');
+            const container = document.getElementById('game-container');
+            if (missions[currentMissionIndex]) {
+                targetEl.innerText = missions[currentMissionIndex].emoji;
+            }
+
+            function animate() {
+                if (!isGameWon) {
+                    target.x += target.dx * target.speedMultiplier;
+                    target.y += target.dy * target.speedMultiplier;
+
+                    const width = container.clientWidth;
+                    const height = container.clientHeight;
+                    const pad = 20;
+
+                    if (target.x > width - pad) { target.x = width - pad; target.dx *= -1; }
+                    if (target.x < pad) { target.x = pad; target.dx *= -1; }
+                    if (target.y > height - pad) { target.y = height - pad; target.dy *= -1; }
+                    if (target.y < pad) { target.y = pad; target.dy *= -1; }
+
+                    targetEl.style.left = target.x + 'px';
+                    targetEl.style.top = target.y + 'px';
+                }
+
+                const containerRect = container.getBoundingClientRect();
+                for (let sat of deployedSats) {
+                    const iconEl = document.getElementById(`fs-${sat.iconIndex}`);
+                    if (!iconEl) continue;
+
+                    const iconRect = iconEl.getBoundingClientRect();
+                    const x1 = iconRect.left - containerRect.left + (iconRect.width / 2);
+                    const y1 = iconRect.top - containerRect.top + iconRect.height - 5;
+
+                    const dx = sat.x - x1;
+                    const dy = sat.y - y1;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+                    sat.beamEl.style.left = x1 + 'px';
+                    sat.beamEl.style.top = y1 + 'px';
+                    sat.beamEl.style.width = dist + 'px';
+                    sat.beamEl.style.transform = `rotate(${angle}deg)`;
+                }
+
+                pAnimId = requestAnimationFrame(animate);
+            }
+            if (pAnimId) cancelAnimationFrame(pAnimId);
+            animate();
+        }
+
+        function checkTrilateration() {
+            let isInsideAll = true;
+            for (let sat of deployedSats) {
+                const dx = target.x - sat.x;
+                const dy = target.y - sat.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist > sat.radius) {
+                    isInsideAll = false;
+                    break;
+                }
+            }
+
+            if (isInsideAll) {
+                winMission();
+            } else {
+                failMission();
+            }
+        }
+
+        function winMission() {
+            isGameWon = true;
+            const pts = missions[currentMissionIndex]?.points || 100;
+            score += pts;
+            updateDashboard();
+
+            showFloatingPoints(pts, target.x, target.y);
+
+            document.getElementById('target-object').style.filter = 'drop-shadow(0 0 20px #FFCC00)';
+
+            setTimeout(() => {
+                currentMissionIndex++;
+                if (currentMissionIndex >= missions.length) {
+                    currentMissionIndex = 0; // loop
+                    showVictoryScreen();
+                } else {
+                    resetBoardForNext();
+                }
+            }, 1500);
+        }
+
+        function failMission() {
+            document.getElementById('game-message').innerText = "TARGET LOST. ATTEMPTING RESTART...";
+            document.getElementById('game-message').style.color = "#ff0000";
+
+            setTimeout(() => {
+                resetBoardForNext(true);
+            }, 1500);
+        }
+
+        function showFloatingPoints(pts, x, y) {
+            const container = document.getElementById('floating-points-container');
+            const el = document.createElement('div');
+            el.className = 'floating-score';
+            el.innerText = `+${pts}`;
+            el.style.left = `${x}px`;
+            el.style.top = `${y}px`;
+            container.appendChild(el);
+            setTimeout(() => el.remove(), 1000);
+        }
+
+        function resetBoardForNext(failed = false) {
+            deployedSats.forEach(sat => {
+                sat.el.remove();
+                sat.beamEl.remove();
+            });
+            deployedSats = [];
+
+            [1, 2, 3, 4].forEach(i => {
+                const icon = document.getElementById(`fs-${i}`);
+                if (icon) icon.style.opacity = '0';
+            });
+
+            if (!failed) {
+                target.speedMultiplier += 0.5;
+            }
+
+            document.getElementById('game-message').style.color = "white";
+            document.getElementById('target-object').style.filter = '';
+
+            isGameWon = false;
+            updateDashboard();
+            startMovingTarget();
+        }
+
+        function showVictoryScreen() {
+            document.getElementById('final-score').innerText = `TOTAL LOCKS: ${score}`;
+            document.getElementById('victory-screen').classList.add('active');
+        }
+
+        function resetGame() {
+            document.getElementById('victory-screen').classList.remove('active');
+            score = 0;
+            currentMissionIndex = 0;
+            target.speedMultiplier = 1;
+            resetBoardForNext(false);
+        }
+
+        // Start everything
+        initGame();
+    </script>
 </body>
+
 </html>
