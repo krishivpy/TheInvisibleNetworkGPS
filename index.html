@@ -13,6 +13,17 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <style>
+        .source-card { background:#fafafa; border:1px solid #e0e0e0; border-left:5px solid var(--primary); border-radius:4px; padding:25px 30px; margin-bottom:20px; transition:transform .2s,box-shadow .2s; }
+        .source-card:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.08); }
+        .source-card .source-number { font-family:var(--font-heading); font-size:.85rem; color:var(--primary); text-transform:uppercase; letter-spacing:2px; margin-bottom:8px; }
+        .source-card h3 { font-family:var(--font-heading); font-size:1.2rem; margin-bottom:8px; color:#111; }
+        .source-card .source-org { font-size:.9rem; color:#666; margin-bottom:12px; font-style:italic; }
+        .source-card p { font-size:.95rem; color:#444; line-height:1.6; margin-bottom:12px; }
+        .source-card a { font-family:var(--font-heading); font-size:.85rem; color:var(--primary); text-decoration:none; text-transform:uppercase; letter-spacing:1px; border-bottom:2px solid transparent; transition:border-color .2s; }
+        .source-card a:hover { border-bottom-color:var(--primary); }
+        .sources-category { font-family:var(--font-heading); font-size:1.4rem; text-transform:uppercase; letter-spacing:3px; color:#111; margin-top:50px; margin-bottom:25px; padding-bottom:10px; border-bottom:3px solid var(--primary); display:inline-block; }
+    </style>
 </head>
 
 <body>
@@ -29,13 +40,12 @@
                 <li><a href="#" onclick="showTopic('history-of-gps', this)">History</a></li>
                 <li><a href="#" onclick="showTopic('how-it-works', this)">How it Works</a></li>
                 <li><a href="#" onclick="showTopic('atomic-clock', this)">Atomic Clock</a></li>
-                <li><a href="airplane.html">GPS in Airplane</a></li>
-                <li><a href="smartphones.html">GPS in Smartphones</a></li>
-                <li><a href="cars.html">GPS in Cars</a></li>
-                <li><a href="ships.html">GPS in Ships</a></li>
-                <li><a href="conclusion.html">Conclusion</a></li>
-                <li><a href="sources.html">Sources</a></li>
-                <li><a href="#" onclick="showTopic('gps-game', this)">Tracker Game</a></li>
+                <li><a href="#" onclick="showTopic('gps-in-airplanes', this)">GPS in Airplane</a></li>
+                <li><a href="#" onclick="showTopic('gps-in-smartphones', this)">GPS in Smartphones</a></li>
+                <li><a href="#" onclick="showTopic('gps-in-cars', this)">GPS in Cars</a></li>
+                <li><a href="#" onclick="showTopic('gps-in-ships', this)">GPS in Ships</a></li>
+                <li><a href="#" onclick="showTopic('conclusion', this)">Conclusion</a></li>
+                <li><a href="#" onclick="showTopic('sources', this)">Sources</a></li>
             </ul>
         </nav>
 
@@ -135,7 +145,7 @@
                     <h1>History of GPS</h1>
                 </div>
 
-                <img src="img/multiple_satellites.png" alt="History of GPS Timeline" class="hero-image"
+                <img src="img/history.png" alt="History of GPS Timeline" class="hero-image"
                     style="height: 300px; width: 100%; object-fit: cover; object-position: center;">
 
                 <div class="topic-body">
@@ -361,14 +371,178 @@
                 </div>
 
                 <div class="topic-footer">
-                    <a href="airplane.html" class="btn btn-primary">Next: GPS in Airplane</a>
+                    <button class="btn btn-primary" onclick="showTopic('gps-in-airplanes')">Next: GPS in Airplane</button>
                 </div>
             </section>
 
+            <!-- GPS in Airplanes Section -->
+            <section class="topic-card" id="gps-in-airplanes" style="display:none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Aviation</div>
+                    <h1>GPS in Airplanes</h1>
+                </div>
+                <img src="img/GPSInAirPlane.png" alt="GPS in Airplanes" class="hero-image" style="height:400px;width:100%;object-fit:contain;background:#1a1a1a;">
+                <div class="topic-body">
+                    <p class="intro-text">How GPS Helps Airplanes Navigate the World</p>
+                    <p>GPS plays an essential role in modern aviation. Aircraft use GPS to determine their position, speed, direction, and altitude while flying across long distances.</p>
+                    <p>Inside an aircraft, GPS receivers communicate with satellites to constantly update the aircraft's position. This information is displayed on cockpit navigation screens and used by the aircraft's flight management system.</p>
+                    <p>GPS allows aircraft to follow highly precise flight paths known as <strong>area navigation routes (RNAV)</strong>. These routes allow planes to fly more direct paths between airports, saving fuel and reducing travel time.</p>
+                    <div class="editorial-box" style="margin-top:40px;border-color:#000;">
+                        <h3 style="margin-bottom:20px;">Wide Area Augmentation System (WAAS)</h3>
+                        <p>Another important aviation system is the <strong>Wide Area Augmentation System</strong>. WAAS improves GPS accuracy by using a network of ground reference stations across North America.</p>
+                        <p style="margin-top:15px;">These stations monitor GPS signals and detect small errors. Correction information is sent to special satellites, which then broadcast corrected signals to aircraft. With WAAS, GPS accuracy improves to within about <strong>1–2 meters</strong>, allowing pilots to perform precise landing approaches even in poor weather.</p>
+                    </div>
+                    <p style="font-weight:bold;background:#fff;border-left:5px solid #000;padding:15px 20px;margin-top:30px;">GPS has significantly improved aviation safety by reducing navigation errors and helping pilots maintain accurate flight paths.</p>
+                </div>
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('gps-in-smartphones')">Next: GPS in Smartphones</button>
+                </div>
+            </section>
 
+            <!-- GPS in Smartphones Section -->
+            <section class="topic-card" id="gps-in-smartphones" style="display:none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Mobile</div>
+                    <h1>GPS in Smartphones</h1>
+                </div>
+                <img src="img/GPSInSmartPhones.png" alt="GPS in Smartphones" class="hero-image" style="height:400px;width:100%;object-fit:cover;object-position:center;">
+                <div class="topic-body">
+                    <p class="intro-text">Finding Your Location: GPS Inside Your Smartphone</p>
+                    <p>Smartphones use GPS to determine a user's location and provide many location-based services. Every modern smartphone contains a small GPS receiver that listens for signals from satellites orbiting Earth.</p>
+                    <p>When location services are turned on, the phone receives signals from multiple satellites and calculates its position using trilateration. This allows the phone to determine its latitude, longitude, and sometimes altitude.</p>
+                    <p>However, phones usually combine GPS with other technologies to improve speed and accuracy. One of these technologies is <strong>Assisted GPS (A-GPS)</strong>. A-GPS uses nearby cell towers and Wi-Fi networks to help estimate the phone's location before satellite signals are fully processed.</p>
+                    <div class="editorial-box" style="margin-top:40px;border-color:#000;">
+                        <h3 style="margin-bottom:20px;">Everyday Applications of Smartphone GPS</h3>
+                        <div class="placeholder-grid">
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🗺️ Navigation</h4><p>Navigation apps for driving, walking, or biking</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>📍 Nearby Services</h4><p>Finding nearby restaurants, stores, or services</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🚕 Ride-sharing</h4><p>Ride-sharing services such as taxis and delivery apps</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🌤️ Weather</h4><p>Weather apps that show forecasts for your exact location</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🏃 Fitness</h4><p>Fitness trackers that measure running or cycling routes</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🚨 Emergency</h4><p>Emergency services that locate people during emergencies</p></div>
+                        </div>
+                    </div>
+                    <p style="font-weight:bold;background:#fff;border-left:5px solid #000;padding:15px 20px;margin-top:30px;">When you open a map application, a small blue dot appears showing where you are — calculated by your phone using signals from satellites thousands of kilometers above Earth.</p>
+                </div>
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('gps-in-cars')">Next: GPS in Cars</button>
+                </div>
+            </section>
 
-            <!-- GPS Game Section -->
-            <section class="topic-card" id="gps-game" style="display: none;">
+            <!-- GPS in Cars Section -->
+            <section class="topic-card" id="gps-in-cars" style="display:none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Automotive</div>
+                    <h1>GPS in Cars</h1>
+                </div>
+                <img src="img/GPSInCars.png" alt="GPS in Cars" class="hero-image" style="height:400px;width:100%;object-fit:cover;object-position:center;">
+                <div class="topic-body">
+                    <p class="intro-text">Driving with Satellites: How GPS Guides Every Journey</p>
+                    <p>GPS has transformed the way people drive. Modern cars use GPS receivers built into their dashboard navigation systems to provide turn-by-turn directions, calculate estimated arrival times, and suggest alternate routes when traffic is heavy.</p>
+                    <p>The GPS receiver in a car communicates with satellites to determine the vehicle's exact position on the road. This position is then matched to a digital map, allowing the system to display the car's location in real time.</p>
+                    <p>Cars pair GPS data with <strong>gyroscope sensors</strong> and <strong>wheel speed sensors</strong> to maintain accurate routing even through tunnels or parking garages where satellite signals may be temporarily blocked. This technology is called <strong>dead reckoning</strong>.</p>
+                    <div class="editorial-box" style="margin-top:40px;border-color:#000;">
+                        <h3 style="margin-bottom:20px;">How Cars Use GPS</h3>
+                        <div class="placeholder-grid">
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🛣️ Turn-by-Turn Navigation</h4><p>GPS provides voice-guided directions to help drivers reach their destination efficiently.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🚦 Real-Time Traffic</h4><p>GPS-enabled systems receive live traffic data to suggest faster routes and avoid congestion.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🚗 Fleet Management</h4><p>Delivery and logistics companies track their vehicles in real time to optimize routes and schedules.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🔒 Anti-Theft Tracking</h4><p>Many vehicles include GPS-based anti-theft systems that can locate a stolen car anywhere in the world.</p></div>
+                        </div>
+                    </div>
+                    <p style="font-weight:bold;background:#fff;border-left:5px solid #000;padding:15px 20px;margin-top:30px;">Today, GPS navigation has become a standard feature in nearly every new car sold worldwide, making driving safer and more efficient for millions of people.</p>
+                </div>
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('gps-in-ships')">Next: GPS in Ships</button>
+                </div>
+            </section>
+
+            <!-- GPS in Ships Section -->
+            <section class="topic-card" id="gps-in-ships" style="display:none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Maritime</div>
+                    <h1>GPS in Ships</h1>
+                </div>
+                <img src="img/GPSInShips.png" alt="GPS in Ships" class="hero-image" style="height:400px;width:100%;object-fit:cover;object-position:center;">
+                <div class="topic-body">
+                    <p class="intro-text">Navigating the Seas: How GPS Keeps Ships on Course</p>
+                    <p>For centuries, sailors relied on the stars, compasses, and paper charts to navigate the oceans. Today, GPS has replaced these traditional methods with a system that provides precise, real-time positioning anywhere on Earth's waters.</p>
+                    <p>Ships rely heavily on <strong>Electronic Navigation Charts (ENCs)</strong> backed by GPS instead of traditional star-based navigation. This has significantly reduced collisions and groundings at sea.</p>
+                    <p>Modern vessels use GPS as part of an integrated bridge system that combines radar, sonar, and satellite data to give captains a complete picture of their surroundings, even in fog or darkness.</p>
+                    <div class="editorial-box" style="margin-top:40px;border-color:#000;">
+                        <h3 style="margin-bottom:20px;">Maritime GPS Applications</h3>
+                        <div class="placeholder-grid">
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>⚓ Port Navigation</h4><p>GPS guides large cargo ships through narrow harbor channels with centimeter-level precision.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🌊 Open Ocean Routing</h4><p>Ships use GPS to follow fuel-efficient routes across vast oceans, saving time and reducing emissions.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🐟 Fishing</h4><p>Fishing vessels use GPS to locate productive fishing grounds and return to the same spots reliably.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🆘 Search &amp; Rescue</h4><p>Coast guards use GPS to quickly locate vessels in distress and coordinate rescue operations at sea.</p></div>
+                        </div>
+                    </div>
+                    <p style="font-weight:bold;background:#fff;border-left:5px solid #000;padding:15px 20px;margin-top:30px;">GPS has made ocean travel safer than ever before, protecting both crew members and the valuable cargo that ships carry across the world's waterways every day.</p>
+                </div>
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('conclusion')">Next: Conclusion</button>
+                </div>
+            </section>
+
+            <!-- Conclusion Section -->
+            <section class="topic-card" id="conclusion" style="display:none;">
+                <div class="topic-header">
+                    <div class="topic-badge">Conclusion</div>
+                    <h1>The Future of GPS</h1>
+                </div>
+                <img src="img/conclusion.png" alt="The Future of GPS" class="hero-image" style="height:400px;width:100%;object-fit:cover;object-position:top;">
+                <div class="topic-body">
+                    <p class="intro-text">What Comes Next?</p>
+                    <p>The Global Positioning System has become one of the most important technologies in the modern world. What began as a military navigation project has grown into a system used by billions of people every day. From helping drivers find the fastest route to guiding airplanes safely across continents and allowing ships to navigate vast oceans, GPS has transformed how humans travel, communicate, and explore the planet.</p>
+                    <p>However, the story of GPS is far from over. Scientists and engineers are constantly improving satellite technology to make GPS more accurate, reliable, and useful in new ways. New generations of GPS satellites are being launched with stronger signals, improved atomic clocks, and better resistance to interference. These upgrades will allow devices to determine location with even greater precision, sometimes within a few centimeters instead of several meters.</p>
+                    <div class="editorial-box" style="margin-top:40px;border-color:#000;">
+                        <h3 style="margin-bottom:25px;">Emerging Technologies Powered by GPS</h3>
+                        <div class="placeholder-grid">
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🚗 Autonomous Vehicles</h4><p>Self-driving cars rely on extremely precise GPS data to understand their position on roads and navigate safely.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🚁 Drone Technology</h4><p>Delivery and survey drones use GPS to fly precise routes and may one day deliver packages and medical supplies.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🏙️ Smart Cities</h4><p>Transportation systems and infrastructure will use GPS data to improve efficiency and adjust traffic signals in real time.</p></div>
+                            <div class="placeholder-item" style="border-top:3px solid var(--primary);"><h4>🌍 Earth Science</h4><p>Precise GPS measurements help researchers track tectonic plates, monitor earthquakes, and measure sea level changes.</p></div>
+                        </div>
+                    </div>
+                    <p>In addition, future technologies may combine GPS with other satellite navigation systems such as <strong>Galileo</strong>, <strong>GLONASS</strong>, and <strong>BeiDou</strong>. By using signals from multiple satellite systems, devices will be able to calculate positions faster and with even greater accuracy.</p>
+                    <p>Looking even further ahead, satellite navigation systems similar to GPS may one day help guide spacecraft traveling to the Moon or Mars. Scientists are already studying how navigation satellites could be used to help future astronauts explore other planets.</p>
+                    <p style="font-weight:bold;background:#fff;border-left:5px solid #000;padding:15px 20px;margin-top:30px;">The development of GPS shows how science, mathematics, physics, and technology can work together to create systems that change the world. As technology continues to advance, GPS will remain an essential part of transportation, communication, scientific research, and future innovations.</p>
+                </div>
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('sources')">Next: Sources</button>
+                </div>
+            </section>
+
+            <!-- Sources Section -->
+            <section class="topic-card" id="sources" style="display:none;">
+                <div class="topic-header">
+                    <div class="topic-badge">References</div>
+                    <h1>Sources &amp; References</h1>
+                </div>
+                <div class="topic-body">
+                    <p class="intro-text">Authentic sources used to research and compile the content on this website.</p>
+                    <div class="sources-category">Official Government Sources</div>
+                    <div class="source-card"><div class="source-number">Source 01</div><h3>GPS.gov — Official U.S. Government GPS Information</h3><div class="source-org">National Coordination Office for Space-Based Positioning, Navigation, and Timing</div><p>The official U.S. government website providing comprehensive information about GPS technology, how it works, its history, and current satellite status.</p><a href="https://www.gps.gov/" target="_blank" rel="noopener">Visit GPS.gov →</a></div>
+                    <div class="source-card"><div class="source-number">Source 02</div><h3>U.S. Space Force — GPS Constellation</h3><div class="source-org">United States Space Force</div><p>Information about the GPS satellite constellation operated by the U.S. Space Force, including satellite operations and system management.</p><a href="https://www.spaceforce.mil/" target="_blank" rel="noopener">Visit U.S. Space Force →</a></div>
+                    <div class="source-card"><div class="source-number">Source 03</div><h3>FAA — Wide Area Augmentation System (WAAS)</h3><div class="source-org">Federal Aviation Administration</div><p>Official FAA documentation on the WAAS system that improves GPS accuracy for aviation, enabling precision approaches at airports across North America.</p><a href="https://www.faa.gov/about/office_org/headquarters_offices/ato/service_units/techops/navservices/gnss/waas" target="_blank" rel="noopener">Visit FAA WAAS →</a></div>
+                    <div class="sources-category">Scientific &amp; Technical Sources</div>
+                    <div class="source-card"><div class="source-number">Source 04</div><h3>National Institute of Standards and Technology (NIST) — Atomic Clocks</h3><div class="source-org">U.S. Department of Commerce</div><p>Authoritative information on atomic clock technology, time standards, and how precise timekeeping enables GPS satellite navigation accuracy.</p><a href="https://www.nist.gov/topics/physics/time-and-frequency-division" target="_blank" rel="noopener">Visit NIST →</a></div>
+                    <div class="source-card"><div class="source-number">Source 05</div><h3>NASA — How GPS Works</h3><div class="source-org">National Aeronautics and Space Administration</div><p>NASA's educational resources explaining GPS technology, satellite orbits, signal transmission, and the role of relativity in GPS accuracy.</p><a href="https://www.nasa.gov/directorates/somd/space-communications-navigation-program/gps/" target="_blank" rel="noopener">Visit NASA GPS →</a></div>
+                    <div class="source-card"><div class="source-number">Source 06</div><h3>Smithsonian National Air and Space Museum — GPS History</h3><div class="source-org">Smithsonian Institution</div><p>Historical documentation of the development of satellite navigation systems from the Transit system through to modern GPS technology.</p><a href="https://airandspace.si.edu/" target="_blank" rel="noopener">Visit Smithsonian →</a></div>
+                    <div class="sources-category">Maritime &amp; Aviation</div>
+                    <div class="source-card"><div class="source-number">Source 07</div><h3>International Maritime Organization (IMO)</h3><div class="source-org">United Nations Agency</div><p>Information on how GPS and electronic navigation charts are used in maritime navigation, international shipping regulations, and maritime safety standards.</p><a href="https://www.imo.org/" target="_blank" rel="noopener">Visit IMO →</a></div>
+                    <div class="source-card"><div class="source-number">Source 08</div><h3>International Civil Aviation Organization (ICAO)</h3><div class="source-org">United Nations Agency</div><p>Standards and guidelines for GPS and satellite-based navigation in international aviation, including RNAV and performance-based navigation.</p><a href="https://www.icao.int/" target="_blank" rel="noopener">Visit ICAO →</a></div>
+                    <div class="sources-category">Educational Resources</div>
+                    <div class="source-card"><div class="source-number">Source 09</div><h3>European Space Agency (ESA) — Galileo Navigation</h3><div class="source-org">European Space Agency</div><p>Information about Europe's Galileo satellite navigation system and how it works alongside GPS to improve global positioning accuracy.</p><a href="https://www.esa.int/Applications/Satellite_navigation" target="_blank" rel="noopener">Visit ESA →</a></div>
+                    <div class="source-card"><div class="source-number">Source 10</div><h3>National Geographic — GPS and Navigation</h3><div class="source-org">National Geographic Society</div><p>Educational articles and resources about GPS technology, its applications in exploration, conservation, and scientific research worldwide.</p><a href="https://education.nationalgeographic.org/resource/gps/" target="_blank" rel="noopener">Visit National Geographic →</a></div>
+                    <div class="source-card"><div class="source-number">Source 11</div><h3>U.S. Coast Guard Navigation Center</h3><div class="source-org">United States Coast Guard</div><p>Real-time GPS satellite status, navigation warnings, and information about GPS use in maritime safety and coastal navigation.</p><a href="https://www.navcen.uscg.gov/" target="_blank" rel="noopener">Visit NAVCEN →</a></div>
+                    <div class="source-card"><div class="source-number">Source 12</div><h3>USGS — GPS and Earth Science</h3><div class="source-org">United States Geological Survey</div><p>How high-precision GPS is used to monitor tectonic plate movement, earthquakes, volcanic activity, and sea level changes for scientific research.</p><a href="https://www.usgs.gov/" target="_blank" rel="noopener">Visit USGS →</a></div>
+                </div>
+                <div class="topic-footer">
+                    <button class="btn btn-primary" onclick="showTopic('what-is-gps')">Back to Start</button>
+                </div>
+            </section>
                 <div class="topic-header">
                     <div class="topic-badge">Interactive Simulation</div>
                     <h1>Signal Tracker</h1>
