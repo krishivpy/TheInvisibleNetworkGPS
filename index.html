@@ -543,69 +543,18 @@
                     <button class="btn btn-primary" onclick="showTopic('what-is-gps')">Back to Start</button>
                 </div>
             </section>
-                <div class="topic-header">
-                    <div class="topic-badge">Interactive Simulation</div>
-                    <h1>Signal Tracker</h1>
-                </div>
 
-                <div class="topic-body">
-                    <p class="intro-text">
-                        Tap the grid to deploy 4 orbital tracking signals and isolate the moving target.
-                    </p>
-
-                    <div id="game-dashboard">
-                        <div>
-                            <div style="font-size: 1rem; color: #888; text-transform: uppercase;">Current Target:</div>
-                            <div id="current-mission">Tracking Entity-A...</div>
-                            <div id="game-message">AWAITING SIGNAL DEPLOYMENT 1</div>
-                        </div>
-                        <div style="text-align: right;">
-                            <div style="font-size: 1rem; color: #888; text-transform: uppercase;">Signal Locks</div>
-                            <div id="score-count">0</div>
-                        </div>
-                    </div>
-
-                    <div id="game-container">
-                        <!-- Permanently Fixed Satellites -->
-                        <div class="fixed-sat" id="fs-1">🛰️</div>
-                        <div class="fixed-sat" id="fs-2">🛰️</div>
-                        <div class="fixed-sat" id="fs-3">🛰️</div>
-                        <div class="fixed-sat" id="fs-4">🛰️</div>
-
-                        <!-- The Moving Object -->
-                        <div id="target-object" class="moving-target">📍</div>
-
-                        <!-- Floating Points Container -->
-                        <div id="floating-points-container"
-                            style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index: 50;">
-                        </div>
-
-                        <!-- Victory Screen -->
-                        <div id="victory-screen">
-                            <h2>TARGET SECURED</h2>
-                            <p
-                                style="color: #ccc; font-family: 'Open Sans'; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px;">
-                                Trilateration Complete</p>
-                            <p id="final-score" style="font-size: 2rem; margin: 20px 0;">Locks: 0</p>
-                            <button class="btn btn-primary" onclick="resetGame()" style="margin-top: 15px;">Deploy
-                                Again</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
         </div>
     </main>
 
-    <!-- Script to handle logic -->
+    <!-- Script to handle navigation -->
     <script>
         function showTopic(topicId, element) {
             document.querySelectorAll('.topic-card').forEach(card => card.style.display = 'none');
             document.querySelectorAll('.desktop-nav a').forEach(link => link.classList.remove('active'));
-
             const targetSection = document.getElementById(topicId);
             if (targetSection) targetSection.style.display = 'block';
-
             if (element) {
                 element.classList.add('active');
             } else {
@@ -615,244 +564,15 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // --- GPS Game Logic (Trilateration Tracker) ---
-        let currentMissionIndex = 0;
-        let score = 0;
-        const missions = [
-            { text: "Tracking Entity-A", emoji: "📍", points: 100 },
-            { text: "Tracking Entity-B", emoji: "♦️", points: 150 },
-            { text: "Tracking Transport", emoji: "🚁", points: 200 }
-        ];
-
-        const satRadiuses = [220, 170, 120, 80];
-        let deployedSats = [];
-        let isGameWon = false;
-        let pAnimId;
-
-        // Target state
-        let target = {
-            x: 200, y: 200,
-            dx: 0.8, dy: 0.6,
-            speedMultiplier: 1
-        };
-
-        function initGame() {
-            updateDashboard();
-            startMovingTarget();
-
-            document.getElementById('game-container').onclick = function (e) {
-                if (isGameWon || deployedSats.length >= 4) return;
-
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                deploySatellite(x, y);
-            };
-        }
-
-        function updateDashboard() {
-            const mission = missions[currentMissionIndex];
-            if (mission) {
-                document.getElementById('current-mission').innerText = `${mission.text}`;
+        // Restore topic from localStorage (used when navigating back from external pages)
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('gps-topic');
+            if (saved) {
+                localStorage.removeItem('gps-topic');
+                const link = document.querySelector(`a[onclick*="${saved}"]`);
+                showTopic(saved, link);
             }
-            document.getElementById('score-count').innerText = score;
-
-            const msgEl = document.getElementById('game-message');
-            if (deployedSats.length === 0) {
-                msgEl.innerText = "AWAITING SIGNAL DEPLOYMENT 1";
-                msgEl.style.animation = "pulseMessage 1s infinite alternate";
-            } else if (deployedSats.length < 4) {
-                msgEl.innerText = `UPLINK ESTABLISHED. DEPLOYED: ${deployedSats.length}/4`;
-                msgEl.style.animation = "none";
-            }
-        }
-
-        function deploySatellite(x, y) {
-            const nextIndex = deployedSats.length;
-            const radius = satRadiuses[nextIndex];
-            const container = document.getElementById('game-container');
-
-            const satEl = document.createElement('div');
-            satEl.className = `signal-circle signal-${nextIndex + 1}`;
-            satEl.style.width = `${radius * 2}px`;
-            satEl.style.height = `${radius * 2}px`;
-            satEl.style.left = `${x}px`;
-            satEl.style.top = `${y}px`;
-
-            const beamEl = document.createElement('div');
-            beamEl.className = `sat-beam beam-${nextIndex + 1}`;
-
-            container.appendChild(satEl);
-            container.appendChild(beamEl);
-
-            const iconEl = document.getElementById(`fs-${nextIndex + 1}`);
-            if (iconEl) {
-                iconEl.style.opacity = '1';
-                iconEl.style.filter = `drop-shadow(0 0 10px currentColor) brightness(1.2)`;
-            }
-
-            deployedSats.push({
-                x, y, radius,
-                el: satEl, beamEl: beamEl, iconIndex: nextIndex + 1
-            });
-            updateDashboard();
-
-            if (deployedSats.length === 4) {
-                checkTrilateration();
-            }
-        }
-
-        function startMovingTarget() {
-            const targetEl = document.getElementById('target-object');
-            const container = document.getElementById('game-container');
-            if (missions[currentMissionIndex]) {
-                targetEl.innerText = missions[currentMissionIndex].emoji;
-            }
-
-            function animate() {
-                if (!isGameWon) {
-                    target.x += target.dx * target.speedMultiplier;
-                    target.y += target.dy * target.speedMultiplier;
-
-                    const width = container.clientWidth;
-                    const height = container.clientHeight;
-                    const pad = 20;
-
-                    if (target.x > width - pad) { target.x = width - pad; target.dx *= -1; }
-                    if (target.x < pad) { target.x = pad; target.dx *= -1; }
-                    if (target.y > height - pad) { target.y = height - pad; target.dy *= -1; }
-                    if (target.y < pad) { target.y = pad; target.dy *= -1; }
-
-                    targetEl.style.left = target.x + 'px';
-                    targetEl.style.top = target.y + 'px';
-                }
-
-                const containerRect = container.getBoundingClientRect();
-                for (let sat of deployedSats) {
-                    const iconEl = document.getElementById(`fs-${sat.iconIndex}`);
-                    if (!iconEl) continue;
-
-                    const iconRect = iconEl.getBoundingClientRect();
-                    const x1 = iconRect.left - containerRect.left + (iconRect.width / 2);
-                    const y1 = iconRect.top - containerRect.top + iconRect.height - 5;
-
-                    const dx = sat.x - x1;
-                    const dy = sat.y - y1;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-
-                    sat.beamEl.style.left = x1 + 'px';
-                    sat.beamEl.style.top = y1 + 'px';
-                    sat.beamEl.style.width = dist + 'px';
-                    sat.beamEl.style.transform = `rotate(${angle}deg)`;
-                }
-
-                pAnimId = requestAnimationFrame(animate);
-            }
-            if (pAnimId) cancelAnimationFrame(pAnimId);
-            animate();
-        }
-
-        function checkTrilateration() {
-            let isInsideAll = true;
-            for (let sat of deployedSats) {
-                const dx = target.x - sat.x;
-                const dy = target.y - sat.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist > sat.radius) {
-                    isInsideAll = false;
-                    break;
-                }
-            }
-
-            if (isInsideAll) {
-                winMission();
-            } else {
-                failMission();
-            }
-        }
-
-        function winMission() {
-            isGameWon = true;
-            const pts = missions[currentMissionIndex]?.points || 100;
-            score += pts;
-            updateDashboard();
-
-            showFloatingPoints(pts, target.x, target.y);
-
-            document.getElementById('target-object').style.filter = 'drop-shadow(0 0 20px #FFCC00)';
-
-            setTimeout(() => {
-                currentMissionIndex++;
-                if (currentMissionIndex >= missions.length) {
-                    currentMissionIndex = 0; // loop
-                    showVictoryScreen();
-                } else {
-                    resetBoardForNext();
-                }
-            }, 1500);
-        }
-
-        function failMission() {
-            document.getElementById('game-message').innerText = "TARGET LOST. ATTEMPTING RESTART...";
-            document.getElementById('game-message').style.color = "#ff0000";
-
-            setTimeout(() => {
-                resetBoardForNext(true);
-            }, 1500);
-        }
-
-        function showFloatingPoints(pts, x, y) {
-            const container = document.getElementById('floating-points-container');
-            const el = document.createElement('div');
-            el.className = 'floating-score';
-            el.innerText = `+${pts}`;
-            el.style.left = `${x}px`;
-            el.style.top = `${y}px`;
-            container.appendChild(el);
-            setTimeout(() => el.remove(), 1000);
-        }
-
-        function resetBoardForNext(failed = false) {
-            deployedSats.forEach(sat => {
-                sat.el.remove();
-                sat.beamEl.remove();
-            });
-            deployedSats = [];
-
-            [1, 2, 3, 4].forEach(i => {
-                const icon = document.getElementById(`fs-${i}`);
-                if (icon) icon.style.opacity = '0';
-            });
-
-            if (!failed) {
-                target.speedMultiplier += 0.5;
-            }
-
-            document.getElementById('game-message').style.color = "white";
-            document.getElementById('target-object').style.filter = '';
-
-            isGameWon = false;
-            updateDashboard();
-            startMovingTarget();
-        }
-
-        function showVictoryScreen() {
-            document.getElementById('final-score').innerText = `TOTAL LOCKS: ${score}`;
-            document.getElementById('victory-screen').classList.add('active');
-        }
-
-        function resetGame() {
-            document.getElementById('victory-screen').classList.remove('active');
-            score = 0;
-            currentMissionIndex = 0;
-            target.speedMultiplier = 1;
-            resetBoardForNext(false);
-        }
-
-        // Start everything
-        initGame();
+        });
     </script>
 </body>
 
